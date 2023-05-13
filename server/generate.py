@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/<name>')
 def hello_name(name):
    names_gen = gen(name)
-   text = '\n'.join(names_gen)
+   text = ','.join(names_gen)
    return text
  
 block_size = 8
@@ -59,7 +59,7 @@ def gen(name):
                 # if we sample the special '.' token, break
                 if ix == 0:
                     break
-            names_gen.append(''.join(i_to_ch[i] for i in out))
+            names_gen.append(''.join(i_to_ch[i] for i in out).strip('.'))
     return names_gen
 
 
