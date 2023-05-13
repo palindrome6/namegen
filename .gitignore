@@ -3,3 +3,4 @@ ML/data
 ML/mlruns
 ML/models
 *.pyc
+ML/__pycache__
