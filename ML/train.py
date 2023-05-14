@@ -32,8 +32,8 @@ n_hidden = 64
 torch.manual_seed(42);
 random.seed(42)
 
-max_steps = 50000
-decay_step = 30000
+max_steps = 200000
+decay_step = 170000
 lr = 0.1
 batch_size = 32
 
