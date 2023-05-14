@@ -6,7 +6,7 @@ from nn_def import *
 
 app = Flask(__name__)
 
-@app.route('/generatename', methods=['GET'])
+@app.route('/', methods=['GET'])
 @cross_origin() 
 def hello_name():
    prompt = request.args.get('name')
