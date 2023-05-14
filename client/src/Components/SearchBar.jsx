@@ -1,12 +1,18 @@
 import styled from "styled-components";
 import { useContext } from 'react';
 import { ThemePreferenceContext } from "../App";
+import { sendRequest } from "../services/getNameList";
 const SearchBar = () => {
     const { currentTheme } = useContext(ThemePreferenceContext);
+    const handleOnChange = async (event) => {
+        const value = event.target.value;
+        const response = await sendRequest(value);
+        console.log(response.json());
+    }
     return (
         <StyledSearchBarContainer>
             <IconContainer theme={currentTheme}>
-                <input className='search-bar' type="search" placeholder="Search.."></input>
+                <input className='search-bar' type="search" placeholder="Search.." onChange={handleOnChange}></input>
                 <i className="fa fa-search"></i>
             </IconContainer>
         </StyledSearchBarContainer>

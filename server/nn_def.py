@@ -75,21 +75,3 @@ class BatchNorm1d(nn.Module):
   def parameters(self):
     return [self.gamma, self.beta]
   
-
-# -------------------------
-model = nn.Sequential(
-    nn.Embedding(vocab_size, n_embd),
-    FlattenConsecutive(2), 
-    nn.Linear(n_embd * 2, n_hidden, bias=False), 
-    BatchNorm1d(n_hidden), 
-    nn.Tanh(),
-    FlattenConsecutive(2), 
-    nn.Linear(n_hidden * 2, n_hidden, bias=False), 
-    BatchNorm1d(n_hidden), 
-    nn.Tanh(),
-    FlattenConsecutive(2), 
-    nn.Linear(n_hidden * 2, n_hidden, bias=False), 
-    BatchNorm1d(n_hidden), 
-    nn.Tanh(),
-    nn.Linear(n_hidden, vocab_size)
-)

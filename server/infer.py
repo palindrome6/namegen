@@ -35,12 +35,12 @@ def infer(name):
         context_ = [0] * (block_size - len(name))
         context_.extend([ch_to_i[ch] for ch in name])
 
-    print(rem_, context_)
+    # print(rem_, context_)
 
     names_gen = []
 
     with torch.no_grad():
-        for _ in range(10):
+        while len(names_gen) <= 10:
             
             out = [ch_to_i[ch] for ch in name]
             context = context_
@@ -56,5 +56,7 @@ def infer(name):
                 # if we sample the special '.' token, break
                 if ix == 0:
                     break
-            names_gen.append(''.join(i_to_ch[i] for i in out).strip('.'))
+            nameg = ''.join(i_to_ch[i] for i in out).strip('.')
+            if nameg not in names_gen:
+                names_gen.append(nameg)
     return names_gen
