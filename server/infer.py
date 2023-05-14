@@ -13,7 +13,7 @@ torch.manual_seed(42);
 random.seed(42)
 
 block_size = 8
-words = open('../ML/data/names.txt').read().split()
+words = open('ML/data/names.txt').read().split()
 
 chars = sorted(list(set(''.join(words))))
 ch_to_i = {s: i+1 for i, s in enumerate(chars)}
@@ -22,7 +22,7 @@ i_to_ch = {i: s for s, i in ch_to_i.items()}
 vocab_size = len(i_to_ch)
 
 def infer(name):
-    model3 = torch.load('../ML/models/2023-05-13 215634.pt')
+    model3 = torch.load('ML/models/2023-05-13 215634.pt')
     for layer in model3:
         layer.training = False
     model3.eval()
@@ -34,8 +34,6 @@ def infer(name):
         rem_ = []
         context_ = [0] * (block_size - len(name))
         context_.extend([ch_to_i[ch] for ch in name])
-
-    # print(rem_, context_)
 
     names_gen = []
 

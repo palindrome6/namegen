@@ -1,6 +1,8 @@
-ML/extra
+server/ML/extra
+server/ML/data/config.json
+server/ML/data/names_scraped.txt
 ML/data
-ML/mlruns
+server/ML/mlruns
 ML/models
 *.pyc
-ML/__pycache__
+server/ML/__pycache__
