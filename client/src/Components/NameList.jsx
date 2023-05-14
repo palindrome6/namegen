@@ -1,18 +1,16 @@
 import styled from "styled-components";
-import { getNameList } from "../services/getNameList";
+import { getNameList } from "../services/nameList";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ThemePreferenceContext } from "../App";
 import { useContext } from "react";
 
 const NameList = () => {
-    const [nameList] = useState(['Nitin', 'Narayan', 'Nivrutha', 'Balaji', 'Aniruth', 'Nireeha', 'Radha', 'Jayashree', 'Narayanan', 'Hello', 'World']);
-    // const [nameList, setNameList] = useState([]);
+    const [nameList, setNameList] = useState([]);
     const { currentTheme } = useContext(ThemePreferenceContext);
     useEffect(() => {
-        // getNameList().then((response) => {
-        //     response.json().then((data) => setNameList(data))
-        // })
+        const names = getNameList();
+        setNameList(names);
     }, [])
     return (
         <StyledListContainer theme={currentTheme}>
