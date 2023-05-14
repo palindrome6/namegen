@@ -1,6 +1,5 @@
 import torch
 import torch.nn.functional as F
-import matplotlib.pyplot as plt
 import datetime
 import torch.nn as nn
 import torch.optim as optim
