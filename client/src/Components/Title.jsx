@@ -6,11 +6,11 @@ import { ThemePreferenceContext } from "../App";
 const Title = ({ mainViewRef }) => {
     const { currentTheme } = useContext(ThemePreferenceContext);
     const scrollToMainView = () => {
-        mainViewRef.current.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+        mainViewRef.current.scrollIntoView({ behavior: "smooth" });
     }
     return (
         <StyledTitleContainer theme={currentTheme}>
-            <StyledTitle>Naamify</StyledTitle>
+            <StyledTitle>NameGen</StyledTitle>
             <StyledText>Generate unique sanskrit names! </StyledText>
             <StyledButton onClick={scrollToMainView} whileHover={{ scale: 1.1 }} transition={{ duration: 0.5, ease: "easeInOut" }}>Get Started</StyledButton>
         </StyledTitleContainer>
@@ -24,8 +24,8 @@ const StyledTitleContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 200px;
     color: ${(props) => props.theme === 'light' ? '#1d1d1b' : 'white'};
-    height: 100vh;
 `
 
 const StyledTitle = styled.div`
@@ -48,7 +48,4 @@ const StyledButton = styled(motion.button)`
     cursor: pointer !important;
     border: solid 2px #1d1d1b;
     z-index: 10000;
-    &:focus{
-        outline: 0;
-    }
 `

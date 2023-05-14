@@ -2,14 +2,7 @@
 
 body {
   margin: 0;
-  font-family: "Alliance", sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@font-face {
-  font-family: "Alliance";
-  /*Can be any text*/
-  src: local("Alliance"),
-    url("./assets/font/AllianceNo2-Medium.ttf") format("truetype");
 }

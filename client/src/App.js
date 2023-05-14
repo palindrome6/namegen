@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import Header from './components/Header';
+import Header from './Components/Header';
 import styled, { ThemeProvider } from 'styled-components';
-import Title from './components/Title';
-import MainView from './components/MainView';
+import Title from './Components/Title';
+import MainView from './Components/MainView';
 import background from './assets/background.jpg';
 export const light = {
   primary: '#4851f4',
