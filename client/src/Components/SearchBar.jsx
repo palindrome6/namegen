@@ -56,6 +56,7 @@ const IconContainer = styled.div`
         margin: 0;
         border: 0;
         font-size: 20px;
+        font-weight: 600;
         color:${(props) => props.theme === 'light' ? '#1d1d1b' : '#e6e5e2'};
         background-color: ${(props) => props.theme === 'light' ? '#e6e5e2' : '#424242'};
         &:focus {

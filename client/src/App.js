@@ -4,7 +4,7 @@ import Header from './components/Header';
 import styled, { ThemeProvider } from 'styled-components';
 import Title from './components/Title';
 import MainView from './components/MainView';
-import background from './assets/background.jpg';
+import background from './assets/images/background.jpg';
 export const light = {
   primary: '#4851f4',
   background: '#e6e5e2',
@@ -68,5 +68,4 @@ const BackgroundImage = styled.img`
   overflow: hidden;
   pointer-events: none;
   z-index: 99;
-  
 `

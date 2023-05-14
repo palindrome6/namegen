@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemePreferenceContext } from "../App";
 import { useContext } from "react";
+import logoLight from "../assets/images/logo-light.png";
+import logoDark from "../assets/images/logo-dark.png";
 
 const Header = () => {
     const { currentTheme, setCurrentTheme } = useContext(ThemePreferenceContext);
@@ -12,10 +14,25 @@ const Header = () => {
         setCurrentTheme(theme);
     }
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        })
+    }
+
     return (
         <HeaderContainer theme={currentTheme}>
             <StyledHeader theme={currentTheme}>
-                <div>NG</div>
+                <StyledLogo src={currentTheme === 'light' ? logoLight : logoDark}
+                    initial={{ x: 50 }}
+                    animate={{ x: 0 }}
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    onClick={scrollToTop}
+                >
+                </StyledLogo>
                 <ThemeButtonContainer theme={currentTheme}>
                     <motion.div layout className="handle">
                         <AnimatePresence mode="wait" initial={false}>
@@ -78,10 +95,15 @@ const HeaderContainer = styled.div`
 const ThemeButtonContainer = styled.div`
     width: 50px;
     background-color: ${(props) => props.theme === 'light' ? '#e6e5e2' : '#424242'};
-    border: ${(props) => props.theme === 'dark' ? 'solid 1px #e6e5e2' : 'solid 1px#424242'};
+    border: ${(props) => props.theme === 'dark' ? 'solid 2px #e6e5e2' : 'solid 2px#424242'};
     border-radius: 30px;
     height: 25px;
     transition: 1s ease-in;
     display: flex;
     justify-content: ${(props) => props.theme === 'dark' ? 'flex-end' : 'flex-start'};
+`
+
+const StyledLogo = styled(motion.img)`
+    padding-left: 10px;
+    cursor: pointer;
 `

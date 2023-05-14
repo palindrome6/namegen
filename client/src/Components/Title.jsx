@@ -11,8 +11,8 @@ const Title = ({ mainViewRef }) => {
     return (
         <StyledTitleContainer theme={currentTheme}>
             <StyledTitle>Naamify</StyledTitle>
-            <StyledText>Generate unique sanskrit names! </StyledText>
-            <StyledButton onClick={scrollToMainView} whileHover={{ scale: 1.1 }} transition={{ duration: 0.5, ease: "easeInOut" }}>Get Started</StyledButton>
+            <StyledText>Generate unique baby names!</StyledText>
+            <StyledButton theme={currentTheme} onClick={scrollToMainView} whileHover={{ scale: 1.1 }} transition={{ duration: 0.5, ease: "easeInOut" }}>Get Started</StyledButton>
         </StyledTitleContainer>
     )
 }
@@ -24,8 +24,10 @@ const StyledTitleContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: ${(props) => props.theme === 'light' ? '#1d1d1b' : 'white'};
+    color: ${(props) => props.theme === 'light' ? '#1d1d1b' : '#e6e5e2'};
     height: 100vh;
+    opacity: 0.8;
+    pointer-events: none;
 `
 
 const StyledTitle = styled.div`
@@ -38,16 +40,17 @@ const StyledText = styled.div`
 `
 
 const StyledButton = styled(motion.button)`
-    background-color: #1d1d1b;
+    background-color: ${(props) => props.theme === 'light' ? '#1d1d1b' : '#e6e5e2'};
     margin-top: 40px;
-    color: white;
+    color: ${(props) => props.theme === 'dark' ? '#1d1d1b' : '#e6e5e2'};
     width: 200px;
     height: 60px;
     border-radius: 40px;
     font-size: 20px;
     cursor: pointer !important;
-    border: solid 2px #1d1d1b;
+    border: ${(props) => props.theme === 'light' ? 'solid 2px #1d1d1b' : 'solid 2px #e6e5e2'};
     z-index: 10000;
+    pointer-events: all;
     &:focus{
         outline: 0;
     }
