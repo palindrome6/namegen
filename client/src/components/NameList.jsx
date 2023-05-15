@@ -5,7 +5,6 @@ import { useContext } from "react";
 
 const NameList = ({ nameList }) => {
     const { currentTheme } = useContext(ThemePreferenceContext);
-    console.log(nameList)
     return (
         <StyledListContainer theme={currentTheme}>
             {

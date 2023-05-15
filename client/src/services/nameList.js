@@ -6,8 +6,7 @@ let nameList = [];
 export const getNameList = async (value) => {
     NameListAPIURL.searchParams.set('name', value);
     const url = NameListAPIURL.toString();
-    console.log(url);
-    axios({
+    const response = axios({
         method: 'get',
         url: url,
         data: {
@@ -16,12 +15,8 @@ export const getNameList = async (value) => {
         headers: {
             "Access-Control-Allow-Origin": "*",
         }
-    }).then((response) => {
-        if (ValidationHelper.isNotUndefinedOrNull(response?.data) && ValidationHelper.isNotEmptyString(response?.data)) {
-            nameList = response.data.split(',');
-        }
     }).catch((err) => {
         console.error(`Could not process request - ${err}`)
     })
-    return nameList;
+    return response;
 };
