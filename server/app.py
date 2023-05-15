@@ -16,10 +16,12 @@ def hello():
    __main__.BatchNorm1d = BatchNorm1d
    
    prompt = request.args.get('name')
+   if prompt is None:
+      prompt = ''
    names_gen = infer(prompt)
    text = ','.join(names_gen)
-   print(text)
+   # print(text)
    return text
 
 if __name__ == '__main__':
-   app.run()
+   app.run(debug=True)
