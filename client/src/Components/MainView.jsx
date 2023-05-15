@@ -1,5 +1,4 @@
 import SearchBar from "./SearchBar";
-import NameList from "./NameList";
 import styled from "styled-components";
 import { forwardRef } from "react";
 import { useContext } from 'react';

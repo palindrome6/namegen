@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { getNameList } from "../services/nameList";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ThemePreferenceContext } from "../App";
 import { useContext } from "react";
