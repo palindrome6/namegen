@@ -1,6 +1,5 @@
 import torch
 import torch.nn.functional as F
-import matplotlib.pyplot as plt
 import datetime
 import torch.nn as nn
 import torch.optim as optim
@@ -13,7 +12,7 @@ n_hidden = 64
 torch.manual_seed(42);
 random.seed(42)
 
-words = open('../ML/data/names.txt').read().split()
+words = open('ML/data/names.txt').read().split()
 
 chars = sorted(list(set(''.join(words))))
 ch_to_i = {s: i+1 for i, s in enumerate(chars)}
