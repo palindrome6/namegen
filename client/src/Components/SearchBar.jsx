@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { useContext, useState } from 'react';
 import { ThemePreferenceContext } from "../App";
-import { setNameList } from "../services/nameList";
+import { getNameList } from "../services/nameList";
 import { ValidationHelper } from '../common/ValidationHelper';
+import NameList from "./NameList";
 
 const SearchBar = () => {
     const [displayError, setDisplayError] = useState(false);
+    const [nameList, setNameList] = useState([]);
     const { currentTheme } = useContext(ThemePreferenceContext);
 
     const handleOnChange = async (event) => {
@@ -13,20 +15,26 @@ const SearchBar = () => {
         const hasNumber = /\d/;
         setDisplayError(false);
         if (ValidationHelper.isNotUndefinedOrNull(value) && ValidationHelper.isNotEmptyString(value) && (hasNumber.test(value) === false)) {
-            setNameList(value);
+            const response = await getNameList(value);
+            setNameList(response);
         } else if ((value !== null && value !== undefined && value !== '')) {
             setDisplayError(true);
+        } else {
+            setNameList([]);
         }
     }
 
     return (
-        <StyledSearchBarContainer>
-            <IconContainer theme={currentTheme}>
-                <input className='search-bar' type="text" placeholder="Search.." onChange={handleOnChange}></input>
-                <i className="fa fa-search"></i>
-            </IconContainer>
-            {displayError === true && <ErrorContainer>Please enter valid string!</ErrorContainer>}
-        </StyledSearchBarContainer>
+        <>
+            <StyledSearchBarContainer>
+                <IconContainer theme={currentTheme}>
+                    <input className='search-bar' type="text" placeholder="Search.." onChange={handleOnChange}></input>
+                    <i className="fa fa-search"></i>
+                </IconContainer>
+                {displayError === true && <ErrorContainer>Please enter valid string!</ErrorContainer>}
+            </StyledSearchBarContainer>
+            <NameList nameList={nameList}></NameList>
+        </>
     )
 }
 

@@ -5,16 +5,13 @@ import { motion } from "framer-motion";
 import { ThemePreferenceContext } from "../App";
 import { useContext } from "react";
 
-const NameList = () => {
-    const [nameList, setNameList] = useState([]);
+const NameList = ({ nameList }) => {
     const { currentTheme } = useContext(ThemePreferenceContext);
-    useEffect(() => {
-        const names = getNameList();
-        setNameList(names);
-    }, [])
+    console.log(nameList)
     return (
         <StyledListContainer theme={currentTheme}>
             {
+                nameList !== null && nameList !== undefined && nameList !== [] &&
                 nameList.map((name, index) => {
                     return (
                         <StyledName key={`${name}-id-${index}`}
@@ -58,4 +55,5 @@ const StyledName = styled(motion.div)`
     color: ${(props) => props.theme === 'light' ? '#1d1d1b' : 'white'};
     font-size: 20px;
     font-weight: 600;
+    pointer-events: all;
 `

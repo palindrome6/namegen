@@ -11,7 +11,6 @@ const MainView = forwardRef((props, ref) => {
         <StyledViewContainer ref={ref}>
             <StyledTitle theme={currentTheme}>Name Generator</StyledTitle>
             <SearchBar></SearchBar>
-            <NameList></NameList>
         </StyledViewContainer>
     )
 });

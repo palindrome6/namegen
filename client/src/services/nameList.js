@@ -1,28 +1,27 @@
 import axios from 'axios';
 import { ValidationHelper } from '../common/ValidationHelper';
+import { NameListAPIURL } from '../common/Constants';
 
 let nameList = [];
-export const setNameList = async (value) => {
-    const URL = `http://127.0.0.1:5000/generatename?name=${value}`;
+export const getNameList = async (value) => {
+    NameListAPIURL.searchParams.set('name', value);
+    const url = NameListAPIURL.toString();
+    console.log(url);
     axios({
         method: 'get',
-        url: URL,
+        url: url,
         data: {
             name: value,
         },
         headers: {
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "*",
         }
     }).then((response) => {
-        if (ValidationHelper.isNotUndefinedOrNull(response) && ValidationHelper.isNotEmptyString(response)) {
-            nameList = response.split(',');
+        if (ValidationHelper.isNotUndefinedOrNull(response?.data) && ValidationHelper.isNotEmptyString(response?.data)) {
+            nameList = response.data.split(',');
         }
     }).catch((err) => {
         console.error(`Could not process request - ${err}`)
     })
-    return
-};
-
-export const getNameList = () => {
     return nameList;
-}
+};
