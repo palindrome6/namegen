@@ -38,9 +38,7 @@ const Header = () => {
                         <AnimatePresence mode="wait" initial={false}>
                             <ThemeButton
                                 theme={currentTheme}
-                                onClick={handleThemeChange}
-                                whileHover={{ scale: 1.1 }}
-                                transition={{ duration: 0.5, ease: "easeInOut" }}>
+                                onClick={handleThemeChange}>
                                 <motion.i
                                     initial={{ y: -30, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
@@ -78,10 +76,14 @@ const ThemeButton = styled(motion.div)`
     cursor: pointer;
     z-index: 1000;
     margin: 2px;
-    transition: 1s ease-in;
+    transition: 0.5s ease-in;
     display:flex;
     align-items: center;
     justify-content: center;
+    pointer-events: all;
+    &:hover{
+        scale: 1.2;
+    }
 `
 
 const HeaderContainer = styled.div`
