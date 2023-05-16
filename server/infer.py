@@ -128,7 +128,7 @@ def infer(name):
                 if ix == 0:
                     break
             nameg = ''.join(i_to_ch[i] for i in out).strip('.')
-            if nameg not in names_gen:
+            if nameg not in names_gen and nameg != name:
                 names_gen.append(nameg)
     return names_gen
 
