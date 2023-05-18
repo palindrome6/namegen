@@ -11,6 +11,7 @@ const SearchBar = () => {
     const { currentTheme } = useContext(ThemePreferenceContext);
 
     const handleOnChange = async (event) => {
+        event.preventDefault();
         const value = event.target.value;
         const hasNumber = /\d/;
         setDisplayError(false);
