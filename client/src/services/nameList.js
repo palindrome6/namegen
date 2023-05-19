@@ -12,6 +12,7 @@ export const getNameList = async (value) => {
         },
         headers: {
             "Access-Control-Allow-Origin": "*",
+            "Content-Type": "text/html"
         }
     }).catch((err) => {
         console.error(`Could not process request - ${err}`)
