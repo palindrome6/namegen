@@ -7,13 +7,15 @@ export const getNameList = async (value) => {
     const response = axios({
         method: 'get',
         url: url,
+        data: {
+            name: value,
+        },
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "text/html"
         }
     }).catch((err) => {
-        console.error(`Could not process request - ${err}`);
-        return `hello, world, ${err}`;
+        console.error(`Could not process request - ${err}`)
     })
     return response;
 };
