@@ -5,9 +5,12 @@ import torch.nn as nn
 from infer import FlattenConsecutive, BatchNorm1d, infer
 # ------------------------
 import __main__
- 
+
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 @app.route('/', methods=['GET'])
 @cross_origin() 
