@@ -1,8 +1,6 @@
 import axios from 'axios';
-import { ValidationHelper } from '../common/ValidationHelper';
 import { NameListAPIURL } from '../common/Constants';
 
-let nameList = [];
 export const getNameList = async (value) => {
     NameListAPIURL.searchParams.set('name', value);
     const url = NameListAPIURL.toString();
