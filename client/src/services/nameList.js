@@ -7,6 +7,7 @@ export const getNameList = async (value) => {
     const response = axios({
         method: 'get',
         url: url,
+        withCredentials: false,
         data: {
             name: value,
         },
