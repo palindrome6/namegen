@@ -15,7 +15,7 @@ export const getNameList = async (value) => {
             "Access-Control-Allow-Origin": "*",
             'Access-Control-Allow-Headers': '*',
             'Access-Control-Request-Method': '*',
-            'Access-Control-Allow-Methods': GET, PUT, POST, DELETE, HEAD, OPTIONS,
+            'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS',
             "Content-Type": "text/html"
         }
     }).catch((err) => {
