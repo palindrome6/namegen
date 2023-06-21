@@ -8,12 +8,12 @@ import __main__
 
 
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 @app.route('/', methods=['GET'])
-@cross_origin() 
+@cross_origin(origin='*') 
 def hello():
    __main__.FlattenConsecutive = FlattenConsecutive
    __main__.BatchNorm1d = BatchNorm1d
