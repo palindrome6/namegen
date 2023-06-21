@@ -12,7 +12,7 @@ const SearchBar = () => {
 
     const handleOnChange = async (event) => {
         event.preventDefault();
-        const value = event.target.value;
+        const value = event.target.value.toLowerCase();;
         const hasNumber = /\d/;
         setDisplayError(false);
         if (ValidationHelper.isNotUndefinedOrNull(value) && ValidationHelper.isNotEmptyString(value) && (hasNumber.test(value) === false)) {
