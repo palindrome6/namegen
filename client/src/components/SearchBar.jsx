@@ -17,8 +17,9 @@ const SearchBar = () => {
         setDisplayError(false);
         if (ValidationHelper.isNotUndefinedOrNull(value) && ValidationHelper.isNotEmptyString(value) && (hasNumber.test(value) === false)) {
             const nameListResponse = await getNameList(value);
-            if (ValidationHelper.isNotUndefinedOrNull(nameListResponse?.data) && ValidationHelper.isNotEmptyString(nameListResponse?.data)) {
-                let nameList = nameListResponse.data.split(',');
+            console.log(nameListResponse)
+            if (ValidationHelper.isNotUndefinedOrNull(nameListResponse) && ValidationHelper.isNotEmptyString(nameListResponse)) {
+                let nameList = nameListResponse.split(',');
                 setNameList(nameList);
             }
         } else if ((value !== null && value !== undefined && value !== '')) {
