@@ -35,7 +35,6 @@ function App() {
         <ThemeProvider theme={theme}>
           <Header />
           <Content>
-            <BackgroundImage src={background}></BackgroundImage>
             <Title mainViewRef={mainViewRef}></Title>
             <MainView ref={mainViewRef}></MainView>
           </Content>
